@@ -1,0 +1,56 @@
+h1. simple_field
+
+simple_field allows you to write one view and then use that view for both show and create/update action.
+To accomplish this, you use the simple_field method in your view (it depends on simple_form) and then
+provide two shared views: 
+
+@  shared/_simple_field.haml.html 
+  shared/_simple_field_show.haml.html
+@
+which process the output appropriately.  
+
+h2. Installation
+
+In Rails3, add this to your Gemfile
+bq.gem 'simple_field', :git => 'git@github.com:JESii/simple_field.git'
+and then run 
+bq.bundle install
+
+h2. Getting Started
+
+Once you have installed the gem, define two views (haml, erb, or whatever templating system you are using)
+as described above.  Here are examples designed for use with BlueprintCSS, simple_form, and haml that work on my system.
+bq..
+### shared/_simple_field.haml.html
+- form_field = form_field.to_sym
+%span{:class => "span-#{lspan}"}
+  = f.label form_field
+%span{:class => "span-#{fspan} #{last}"}
+  - if as.blank? then
+    = f.input form_field, :label => false, :input_html => { :class => "form_field", :size => size }
+  -else
+    = f.input form_field, :as => "#{as.to_sym}", :label => false, :input_html => { :class => "form_field", :size => size }
+
+- form_field = form_field.to_sym
+%span{:class => "span-#{lspan}"}
+  = f.label form_field
+%span{:class => "span-#{fspan} #{last}"}
+  -result = f.object.send(form_field)
+  -result = '&nbsp;' if result.nil? || result.to_s == ''
+  -result = result.to_s.html_safe if result.respond_to? :to_s
+
+h2. Contributing to simple_field
+ 
+* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
+* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
+* Fork the project
+* Start a feature/bugfix branch
+* Commit and push until you are happy with your contribution
+* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
+* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+
+h2. Copyright
+
+Copyright (c) 2011 Jon Seidel. See LICENSE.txt for
+further details.
+
