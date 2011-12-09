@@ -36,6 +36,7 @@ you to position both elements precisely within the blueprint grid.  The basic la
     | prefix | Label | middle | Field |  
 
 where:  
+
   * prefix  - Empty space (i.e., number of empty grid elements) before the Label
   * Label   - The label text, positioned in the desired number of grid elements
   * middle  - Empty space (empty grid elements) between the Label and the Field
@@ -62,6 +63,7 @@ With simple_field, you code it like this:
 =simple_field(f, "Phone#", "phone_no", :ps => 2, :ls => 2, :ms => 1, :fs => 10, :size => "25", :last => true )
 ```
 where:  
+
   * ps    - prefix span size
   * ls    - Label span size
   * ms    - middle span size
