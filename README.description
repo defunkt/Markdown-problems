@@ -1,0 +1,28 @@
+Markup problems with textile and markdown
+=========================================
+
+I started off using textile (see README.textile) and could
+not get the extended code block options to work. The only
+way I could get code blocks to work was by indenting 4 
+space -- the traditional way -- but the use of the '@' or
+'~~~' didn't work.
+
+So I switched to markdown (see README.markdown) and so the
+'~~~' code blocks work, but now I can't get ordered lists
+to work properly.
+
+Furthermore, there seems to be no way to run my .md files
+through a GFM (github-flavored markdown) renderer to be able
+to test things: I'm forced to make a change, commit it, go
+to github, render it, see the problems and then start the
+cycle all over again <argh>!
+
+I did find the old github "Live Preview" page, but that's deprecated
+(see http://github.github.com/github-flavored-markdown/preview.html).
+
+There's also another page tmpvar.com/markdown.html which does a
+pretty good job of rendering GFM, but it's not a precise fit.
+
+Questions:
+1. Where's the complete documentation for how this stuff works?
+2. Where's a REAL preview for this stuff?
